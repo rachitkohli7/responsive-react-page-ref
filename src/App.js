@@ -8,9 +8,11 @@ import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   body: {
+    position: 'relative',
     backgroundColor: '#5E5558',
     minWidth: '100%',
-    minHeight: '1000px'
+    minHeight: '1000px',
+    border: '2px solid black'
   },
   imageGridContainer: {
     [theme.breakpoints.down('sm')]: {
@@ -26,19 +28,11 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '10px',
       width: '70vw'
     },
-   /*  [theme.breakpoints.down('lg')]: {
-     // marginTop: '14vh',
-      width: '28vw',
-      height: '50vh',
-    }, */
   },
   image: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    /* [theme.breakpoints.down('md')]: {
-      //marginTop: '3vh',
-    }, */
   },
   title: {
     marginLeft: '20px',
@@ -49,13 +43,12 @@ const useStyles = makeStyles((theme) => ({
   },
   titleColumn: {
     maxHeight: "200px",
-    //border: '2px solid green'
   },
   secondHeader: {
-    //border: '2px solid white',
     marginTop: '-18vh',
     marginLeft: '20px',
-    fontSize: '6vh',
+    lineHeight: '6vw',
+    fontSize: '6vw',
     color: 'white',
     width: '100%',
     [theme.breakpoints.down('sm')]: {
@@ -64,8 +57,6 @@ const useStyles = makeStyles((theme) => ({
   },
   gridContainer1: {
     width: '100%',
-    //border: '2px solid blue',
-    //paddingTop: '20px'
   },
   iconBox: {
     display: 'flex',
@@ -79,11 +70,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex'
   },
   basicAdvance: {
-    //marginLeft: '8px',
+    padding: 0,
     color: 'white',
     position: 'absolute',
     bottom: '5px',
-    left: '20px'
+    left: '20px',
   }
 }));
 
@@ -94,7 +85,12 @@ function App() {
   const [width, setWidth] = useState('100%'); // Keeping for the future use.
 
   const updateWindowDimensions = () => {
-    setHeight(window.innerHeight);
+    let height = window.innerHeight;
+    /* Can be used later
+s    if(window.innerWidth < 600) {
+      height = 1100;
+    } */
+    setHeight(height);
     setWidth(window.innerWidth);
   }
 
@@ -107,12 +103,11 @@ function App() {
       <div style={{height}} className={classes.body}>
         <Grid className={classes.gridContainer1} container spacing={3}>
           <Grid className={classes.titleColumn} item xs={12} sm={12} md={6}>
-            {/* <Typography>{"Title"}</Typography> */}
             <div className={classes.title}>Title</div>
           </Grid>
           <Grid item className={classes.imageGridContainer} xs={12} sm={12} md={6}>
             <Container className={classes.imageContainer}>
-              <img className={classes.image} src={ImageFile}/>
+              <img className={classes.image} alt="" src={ImageFile}/>
             </Container>
           </Grid>
         </Grid>
