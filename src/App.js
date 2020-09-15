@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   secondHeader: {
     //border: '2px solid white',
     marginTop: '-18vh',
-    marginLeft: '23px',
+    marginLeft: '20px',
     fontSize: '6vh',
     color: 'white',
     width: '100%',
